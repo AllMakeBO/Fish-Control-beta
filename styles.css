@@ -1,3 +1,6 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS E RESET
+   ========================================================================== */
 * {
   box-sizing: border-box;
 }
@@ -8,36 +11,7 @@ body, h1, h2, input, button {
   padding: 0;
 }
 
-/* Top Bar */
-.top-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-
-  background-color: #012E62;
-  display: flex;
-  align-items: center;
-  padding: 10px 12px;
-
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-}
-
-.top-bar h1 {
-  color: #fff;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-}
-
-.logo img {
-  height: 60px;
-}
-
-/* Body */
-body {
+.body_login{
   min-height: 100vh;
 
   background-image: url("https://uploads.onecompiler.io/43s2gpp6m/44b6qv7we/mais_peixes_variados.png");
@@ -54,65 +28,183 @@ body {
   overflow: hidden;
 }
 
-/* Login Container */
-.login-container {
-  background-color: rgba(255, 255, 255, 0.7);
-  width: clamp(350px, 30vw, 100vw);
-  min-height: 300px;
-  max-width: 400px;
-
-  padding: clamp(16px, 5vw, 40px);
-  border-radius: 25px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-
-  text-align: center;
-  animation: fadeIn 0.8s ease;
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: white;
 }
 
-/* Conteúdo */
-.login-container h2 {
+/* ==========================================================================
+   TOP BAR (CABEÇALHO FIXO)
+   ========================================================================== */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 80px; /* Altura definida para consistência */
+  background-color: #012E62;
+  display: flex;
+  align-items: center;
+  padding: 10px 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.top-bar h1 {
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.logo img {
+  height: 60px;
+}
+
+/* ==========================================================================
+   CONTAINERS (LOGIN E CADASTRO)
+   ========================================================================== */
+.login-container, .cadastro {
+  background-color: rgba(255, 255, 255, 0.85); /* Leve transparência */
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: clamp(16px, 5vw, 40px);
+  text-align: center;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Tamanho específico para Login */
+.login-container {
+  width: clamp(350px, 30vw, 100vw);
+  max-width: 400px;
+  min-height: 300px;
+}
+
+/* Tamanho específico para Cadastro/Verificação */
+.cadastro {
+  width: clamp(550px, 40vw, 100vw);
+  max-width: 800px;
+  min-height: 320px;
+}
+
+/* Títulos dos Containers */
+.login-container h2, .cadastro h2 {
   margin-bottom: 25px;
   color: #012e62;
 }
 
-.login-container input {
+/* ==========================================================================
+   ELEMENTOS DE FORMULÁRIO (INPUTS E BOTÕES)
+   ========================================================================== */
+input, .input-codigo {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
-
   border: 1px solid #ccc;
   border-radius: 8px;
   outline: none;
   font-size: 15px;
-
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.login-container input:focus {
+input:focus, .input-codigo:focus {
   border-color: #1e3c72;
-  box-shadow: 0 0 5px #1e3c72;
+  box-shadow: 0 0 5px rgba(30, 60, 114, 0.5);
 }
 
-.login-container button {
+button {
   width: 100%;
   padding: 12px;
-
+  margin-top: 15px;
   background: linear-gradient(to bottom, #185396, #012e62);
   color: #fff;
-
   border: none;
   border-radius: 8px;
   font-size: 1em;
-
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.1s;
 }
 
-.login-container button:hover {
+button:hover {
   background: linear-gradient(to bottom, #2a5298, #185396);
 }
 
-/* Links do Rodapé */
+button:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   SEÇÃO DE VERIFICAÇÃO DE IDENTIDADE
+   ========================================================================== */
+.verification-option {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.verification-option label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.verification-option input[type="radio"] {
+  width: auto;
+  margin: 0;
+  accent-color: #012e62;
+}
+
+.instrucoes {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Campo de input agrupado com o domínio (@gmail.com, etc) */
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  margin: 10px 0 20px 0;
+  padding: 0 12px;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group:focus-within {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 1px #1a73e8;
+}
+
+.input-group input {
+  flex: 1;
+  border: none;
+  box-shadow: none; /* Remove a sombra padrão do input individual */
+  padding: 12px 0;
+  margin: 0;
+}
+
+.input-group .domain {
+  color: #5f6368;
+  font-size: 16px;
+  white-space: nowrap;
+  padding-left: 8px;
+}
+
+/* ==========================================================================
+   RODAPÉ E LINKS
+   ========================================================================== */
 .links-footer {
   font-size: 14px;
   margin-top: 25px;
@@ -128,7 +220,9 @@ body {
   color: #012e62;
 }
 
-/* Fade In Animation */
+/* ==========================================================================
+   ANIMAÇÕES
+   ========================================================================== */
 @keyframes fadeIn {
   from {
     opacity: 0;
