@@ -69,7 +69,7 @@ body {
 /* ==========================================================================
    CONTAINERS (LOGIN E CADASTRO)
    ========================================================================== */
-.login-container, .cadastro {
+.login-container, .verify_content {
   background-color: rgba(255, 255, 255, 0.85); /* Leve transparência */
   border-radius: 25px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -86,14 +86,14 @@ body {
 }
 
 /* Tamanho específico para Cadastro/Verificação */
-.cadastro {
+.verify_content {
   width: clamp(550px, 40vw, 100vw);
   max-width: 800px;
   min-height: 320px;
 }
 
 /* Títulos dos Containers */
-.login-container h2, .cadastro h2 {
+.login-container h2, .verify_content h2 {
   margin-bottom: 25px;
   color: #012e62;
 }
