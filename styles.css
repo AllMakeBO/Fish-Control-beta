@@ -3,9 +3,6 @@
    ========================================================================== */
 * {
   box-sizing: border-box;
-}
-
-body, h1, h2, input, button {
   font-family: 'Chromatic Innovation', sans-serif;
   margin: 0;
   padding: 0;
@@ -34,7 +31,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: white;
+  background-color: lightgray;
 }
 
 /* ==========================================================================
@@ -69,7 +66,7 @@ body {
 /* ==========================================================================
    CONTAINERS (LOGIN E CADASTRO)
    ========================================================================== */
-.login-container, .verify_content {
+.login-container, .verify_content, .cadastro {
   background-color: rgba(255, 255, 255, 0.85); /* Leve transparência */
   border-radius: 25px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -86,14 +83,14 @@ body {
 }
 
 /* Tamanho específico para Cadastro/Verificação */
-.verify_content {
+.verify_content, .cadastro {
   width: clamp(550px, 40vw, 100vw);
   max-width: 800px;
   min-height: 320px;
 }
 
 /* Títulos dos Containers */
-.login-container h2, .verify_content h2 {
+.login-container h2, .verify_content h2, .cadastro h2 {
   margin-bottom: 25px;
   color: #012e62;
 }
