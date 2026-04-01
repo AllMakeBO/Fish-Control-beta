@@ -112,6 +112,22 @@ body {
   background: linear-gradient(to bottom, #2a5298, #185396);
 }
 
+/* Links do Rodapé */
+.links-footer {
+  font-size: 14px;
+  margin-top: 25px;
+}
+
+.links-footer a {
+  color: #185396;
+  text-decoration: underline;
+}
+
+.links-footer a:hover {
+  text-decoration: none;
+  color: #012e62;
+}
+
 /* Fade In Animation */
 @keyframes fadeIn {
   from {
