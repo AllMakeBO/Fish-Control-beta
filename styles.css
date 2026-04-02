@@ -210,7 +210,6 @@ input:focus, .input-codigo:focus {
 
 .but_menu{
   background: #E8EDFA;
-  color: white;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 2px;
@@ -219,6 +218,7 @@ input:focus, .input-codigo:focus {
 }
 
 .but_menu button{
+  color: white;
   font-size: 18px;
   text-align: center;
   background: #012E62;
