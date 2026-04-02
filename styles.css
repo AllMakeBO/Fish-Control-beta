@@ -1,28 +1,11 @@
 /* ==========================================================================
-   CONFIGURAÇÕES GERAIS E RESET
+   CONFIGURAÇÕES GERAIS E RESET (Global)
    ========================================================================== */
 * {
   box-sizing: border-box;
   font-family: 'Chromatic Innovation', sans-serif;
   margin: 0;
   padding: 0;
-}
-
-.body_login{
-  min-height: 100vh;
-
-  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/44b6qv7we/mais_peixes_variados.png");
-  backdrop-filter: blur(8px);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
 }
 
 body {
@@ -34,15 +17,40 @@ body {
   background-color: #E8EDFA;
 }
 
+.navigation_system{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #012E62;
+}
+
+/* Utilitário para o fundo com imagem (Login/Cadastro) */
+.body_login {
+  min-height: 100vh;
+  background-image: url("https://uploads.onecompiler.io/43s2gpp6m/44b6qv7we/mais_peixes_variados.png");
+  backdrop-filter: blur(8px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
 /* ==========================================================================
-   TOP BAR (CABEÇALHO FIXO)
+   CABEÇALHO COMUM (Top Bar)
    ========================================================================== */
 .top-bar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 80px; /* Altura definida para consistência */
+  height: 80px;
   background-color: #012E62;
   display: flex;
   align-items: center;
@@ -64,10 +72,10 @@ body {
 }
 
 /* ==========================================================================
-   CONTAINERS (LOGIN E CADASTRO)
+   TELA: ACESSO (Login, Cadastro e Esqueci Senha)
    ========================================================================== */
 .login-container, .verify_content, .cadastro {
-  background-color: rgba(255, 255, 255, 0.85); /* Leve transparência */
+  background-color: rgba(255, 255, 255, 0.85);
   border-radius: 25px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   padding: clamp(16px, 5vw, 40px);
@@ -75,29 +83,24 @@ body {
   animation: fadeIn 0.8s ease forwards;
 }
 
-/* Tamanho específico para Login */
 .login-container {
   width: clamp(350px, 30vw, 100vw);
   max-width: 400px;
   min-height: 300px;
 }
 
-/* Tamanho específico para Cadastro/Verificação */
 .verify_content, .cadastro {
   width: clamp(550px, 40vw, 100vw);
   max-width: 800px;
   min-height: 320px;
 }
 
-/* Títulos dos Containers */
 .login-container h2, .verify_content h2, .cadastro h2 {
   margin-bottom: 25px;
   color: #012e62;
 }
 
-/* ==========================================================================
-   ELEMENTOS DE FORMULÁRIO (INPUTS E BOTÕES)
-   ========================================================================== */
+/* Elementos de Formuário Internos */
 input, .input-codigo {
   width: 100%;
   padding: 12px;
@@ -131,12 +134,118 @@ button:hover {
   background: linear-gradient(to bottom, #2a5298, #185396);
 }
 
-button:active {
-  transform: scale(0.98);
+.links-footer {
+  font-size: 14px;
+  margin-top: 25px;
+}
+
+.links-footer a {
+  color: #185396;
+  text-decoration: underline;
 }
 
 /* ==========================================================================
-   SEÇÃO DE VERIFICAÇÃO DE IDENTIDADE
+   TELAS DE SISTEMA (Inicial, Estoque, Perfil, etc. - Estrutura de Dashboard)
+   ========================================================================== */
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 80px; /* Compensa a Top Bar */
+}
+
+/* Sidebar Padronizada */
+.sidebar {
+  display: flex;
+  width: 250px;
+  background-color: #012E62; /* Cor da identidade */
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s ease;
+  transform: translateX(-100%);
+  margin-left: -250px;
+}
+
+.sidebar_open{
+  transform: translateX(0);
+  margin-left: 0;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  padding: 12px 15px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+}
+
+.sidebar ul li:hover {
+  background-color: #185396;
+}
+
+.but_menu{
+  background: #E8EDFA;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 2px;
+  height: 100vh;
+  width: 30px;
+}
+
+.but_menu button{
+  font-size: 18px;
+  text-align: center;
+  background: #012E62;
+  margin-top: 0;
+  border-radius: 10px;
+  height: 90%;
+  width: 100%;
+}
+
+
+/* Área de Conteúdo (Estoque, Configurações, Suporte, Perfil) */
+.content {
+  flex: 1;
+  padding: 40px;
+  background-color: #E8EDFA;
+  overflow-y: auto;
+}
+
+.content h1{
+  color: #012e62;
+}
+
+/* Cartões de Conteúdo dentro das telas */
+.content-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ==========================================================================
+   TELA ESPECÍFICA: VERIFICAÇÃO / SEGURANÇA
    ========================================================================== */
 .verification-option {
   text-align: left;
@@ -153,21 +262,6 @@ button:active {
   cursor: pointer;
 }
 
-.verification-option input[type="radio"] {
-  width: auto;
-  margin: 0;
-  accent-color: #012e62;
-}
-
-.instrucoes {
-  color: #555;
-  font-size: 14px;
-  margin-bottom: 20px;
-  line-height: 1.5;
-  text-align: left;
-}
-
-/* Campo de input agrupado com o domínio (@gmail.com, etc) */
 .input-group {
   display: flex;
   align-items: center;
@@ -176,45 +270,6 @@ button:active {
   margin: 10px 0 20px 0;
   padding: 0 12px;
   background: #fff;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.input-group:focus-within {
-  border-color: #1a73e8;
-  box-shadow: 0 0 0 1px #1a73e8;
-}
-
-.input-group input {
-  flex: 1;
-  border: none;
-  box-shadow: none; /* Remove a sombra padrão do input individual */
-  padding: 12px 0;
-  margin: 0;
-}
-
-.input-group .domain {
-  color: #5f6368;
-  font-size: 16px;
-  white-space: nowrap;
-  padding-left: 8px;
-}
-
-/* ==========================================================================
-   RODAPÉ E LINKS
-   ========================================================================== */
-.links-footer {
-  font-size: 14px;
-  margin-top: 25px;
-}
-
-.links-footer a {
-  color: #185396;
-  text-decoration: underline;
-}
-
-.links-footer a:hover {
-  text-decoration: none;
-  color: #012e62;
 }
 
 /* ==========================================================================
